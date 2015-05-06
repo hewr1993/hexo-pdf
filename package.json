@@ -1,0 +1,21 @@
+{
+  "name": "hexo-pdf",
+  "version": "0.0.1",
+  "description": "PDF generator plugin for hexo",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hewr1993/hexo-pdf.git"
+  },
+  "keywords": ["website", "blog", "pdf", "framework", "hexo"],
+  "author": "Wayne Ho <hewr1993@gmail.com> (http://blog.wayneho.info)",
+  "license": {
+    "type": "LGPL",
+    "url": "https://github.com/hewr1993/hexo-pdf/blob/master/LICENSE"
+  },
+  "engines": {
+    "hexo": "*"
+  },
+  "dependencies": {
+  }
+}
