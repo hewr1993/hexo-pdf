@@ -1,7 +1,16 @@
-hexo.extend.console.register( 'pdf', 'pdf generator', function( args, callback) {
-   var baseDir = hexo.base_dir;
-   var zlib = require('zlib');
-   var gzip = zlib.createGzip('level=9');
+hexo.extend.console.register( 'pdf', 'pdf generator', function(args, callback) {
+   if (args._.length <= 0) {
+	   console.log("Usage: hexo pdf [post.md]");
+	   return;
+   }
+   var postname = args._[0];
+   var baseDir = hexo.base_dir + "source/_posts/";
+   if (!(hexo.render.isRenderable(baseDir + postname))) {
+	   console.log("Something went wrong, please check the post.");
+	   return;
+   }
+   hexo.render.render(path, [layout, 'post', 'page', 'index'], post);
+   return;
    var fs = require('fs');
    hexo.call('generate', function(err){
       if (err) return callback(err);
@@ -27,8 +36,5 @@ hexo.extend.console.register( 'pdf', 'pdf generator', function( args, callback) 
           }
         };
       traverseFileSystem(baseDir+'public');
-      var finish = Date.now();
-      var elapsed = (finish - start) / 1000;
-      console.log('['+'info'.green+'] gzipped in '+elapsed+'s');
    });
 });
